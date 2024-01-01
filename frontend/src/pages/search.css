@@ -1,0 +1,17 @@
+.blogCardSearch{
+    display: flex;
+}
+.searchVisitBtn{
+    padding: 10px 34px;
+    color: rgb(233, 233, 233);
+    background-color: #242424;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .5s ease-in-out;
+}
+.searchVisitBtn:hover{
+    background-color: #4bb853;
+    color: white;
+}

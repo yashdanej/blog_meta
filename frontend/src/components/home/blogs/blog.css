@@ -1,0 +1,8 @@
+.blogcard .MuiCard-root{
+    padding-left: 0 !important;
+}
+@media screen and (max-width: 991px) {
+    .blogContainer{
+        flex-direction: column;
+    }
+}

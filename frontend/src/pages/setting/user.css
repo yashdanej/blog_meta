@@ -1,0 +1,93 @@
+.user{
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.topContent{
+    height: 35vh;
+    background-image: url(../../../public/images/black.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.topContentSection{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    top: 67%;
+}
+.back{
+    position: absolute;
+    left: 0;
+    bottom: 275%;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+.topContentText p{
+    color: white;
+    text-align: center;
+    margin: 0 35px;
+}
+.topContentSection button{
+    background: transparent;
+    padding: 5px 30px;
+    border: 1px solid white;
+    color: white;
+    border-radius: 25px;
+    outline: none;
+    transition: 0.5s;
+}
+.topContentSection button:hover{
+    background: #4bb853;
+    border: 1px solid transparent;
+}
+.leftComponent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -5rem;
+    text-align: center;
+}
+.avatar{
+    width: 170px;
+    height: 170px;
+    border: 5px solid white;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.contentChange{
+    width: 90%;
+    margin: 0 17px;
+}
+.leftComponentText{
+    margin: 5px 0;
+    font-size: 14px;
+}
+.secondText{
+    color: grey;
+    font-size: 15px;
+}
+.iconText{
+    cursor: pointer;
+    color: rgb(44, 44, 44);
+}
+.writeBtn{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(228, 228, 228);
+    padding: 17px;
+    border-radius: 10px;
+    margin-top: 35px;
+    align-items: center;
+    margin-top: 0;
+}
+.addIcon{
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: black;
+}

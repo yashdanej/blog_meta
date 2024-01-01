@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif !important;
+  letter-spacing: 0.2px;
+}
+::selection{
+  background-color: red;
+  color: white;
+}
+.primaryColor{
+  color: #141414 !important;
+}
+.trendingStyleHr1{
+  color: rgb(0, 0, 0) !important;
+  width: 3vw;
+  margin-top: 7px;
+  margin-bottom: 0;
+}
+.trendingStyleHr2{
+  color: rgb(0, 0, 0) !important;
+  width: 5vw;
+  margin-top: 8px !important;
+}

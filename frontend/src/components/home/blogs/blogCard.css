@@ -1,0 +1,43 @@
+.blogPost{
+    display: flex;
+}
+.blogPost .MuiCard-root{
+    border: none !important;
+    height: 220px;
+}
+.blogPost .MuiSheet-root{
+    margin: 0;
+}
+.imageContent{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.tagBtn{
+    background-color: #ebebeb;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+@media screen and (max-width: 599px) {
+    .cardContent p, .cardContent span{
+        font-size: 11px;
+    }
+    .buttonView{
+        padding: 0 !important;
+    }
+    .buttonViewText{
+        font-size: 11px;
+    }
+    .blogPost .MuiCard-variantOutlined{
+        display: contents;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .blogPost{
+        overflow: auto !important;
+        margin: 25px 0;
+    }
+}

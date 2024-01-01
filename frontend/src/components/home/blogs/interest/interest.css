@@ -1,0 +1,26 @@
+.blogText{
+    font-family: 'Roboto', sans-serif;
+}
+.interest .MuiSvgIcon-root{
+    color: #6e6e6e !important;
+}
+.interest .MuiButtonBase-root{
+    font-size: 12px;
+}
+@media screen and (max-width: 1199px) {
+    .featured .imgFeatured{
+        width: 75px !important;
+        height: 75px !important;
+    }
+    .secondFeatured{
+        font-size: 12px;
+        line-height: 12px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .featured .imgFeatured{
+        width: 50px !important;
+        height: 50px !important;
+    }
+}

@@ -1,0 +1,13 @@
+.allComments{
+    display: flex;
+    margin: 35px 0;
+}
+.allComments button{
+    padding: 5px 10px;
+    color: white;
+    background-color: #242424;
+    border: none;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+    font-size: 14px;
+}
