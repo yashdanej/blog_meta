@@ -1,0 +1,6 @@
+.blogContentSection :not(img) {
+    width: 80%;
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

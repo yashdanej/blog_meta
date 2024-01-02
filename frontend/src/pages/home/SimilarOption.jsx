@@ -6,6 +6,7 @@ import CardContent from '@mui/joy/CardContent';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import BookmarkAdd from '@mui/icons-material/BookmarkAddOutlined';
+import { Link } from 'react-router-dom';
 
 export default function SimilarOption({blog}) {
     console.log('blog', blog);
@@ -16,11 +17,13 @@ export default function SimilarOption({blog}) {
   return (
     <Card key={blog._id} sx={{ width: 320 }}>
     <AspectRatio minHeight="120px" maxHeight="200px">
+      <Link to={`/blog/${blog[0]?._id}`}>
         <img
           src={blog[0]?.banner?.url}
           loading="lazy"
           alt=""
         />
+        </Link>
       </AspectRatio>
       <div>
         <Typography level="title-lg">{blog[0]?.title}</Typography>
@@ -49,7 +52,9 @@ export default function SimilarOption({blog}) {
           aria-label="Explore Bahamas Islands"
           sx={{ ml: 'auto', alignSelf: 'center', fontWeight: 600 }}
         >
-          Explore
+          <Link style={{color: 'inherit', textDecoration: 'none'}} to={`/blog/${blog[0]?._id}`}>
+            Explore
+          </Link>
         </Button>
       </CardContent>
     </Card>

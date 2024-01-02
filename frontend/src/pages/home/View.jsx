@@ -10,6 +10,7 @@ import ModeCommentIcon from '@mui/icons-material/ModeComment';
 import RemoveRedEyeSharpIcon from '@mui/icons-material/RemoveRedEyeSharp';
 import ViewAllComments from '../../components/comments/ViewAllComments'
 import SnackbarWithDecorators from '../../components/SnackbarWithDecorators'
+import './view.css'
 
 const View = () => {
     const [blog, setBlog] = useState([])
@@ -97,7 +98,7 @@ const View = () => {
         <img src={blog?.banner?.url} width='80%' style={{display: 'block', margin: '15px auto'}} alt="" />
         <span><FavoriteBorderIcon/>{blog?.activity?.total_likes.length}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{cursor: 'pointer'}} onClick={toggleDrawer(true)}><ModeCommentIcon/>{blog?.activity?.total_comments}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<RemoveRedEyeSharpIcon/>{blog?.activity?.total_reads.length}</span>
         <div className='container py-3'>
-            <div dangerouslySetInnerHTML={{ __html: blog?.content }} />
+            <div className='blogContentSection' dangerouslySetInnerHTML={{ __html: blog?.content }} />
         </div>
         {
             similarBlog && similarBlog.length>1?

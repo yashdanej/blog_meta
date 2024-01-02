@@ -59,6 +59,7 @@ const Create = () => {
           text: "Error while creating😭",
           color: "danger"
         }));
+        setSnackAlert(true);
       }).finally(() => {
         setLaoding(false);
         setTimeout(() => {
@@ -67,6 +68,20 @@ const Create = () => {
         }, 2000);
       })
     }
+    }
+    const handleDesChange = (e) => {
+      const newDes = e.target.value;
+      if (newDes.length <= 200) {
+        setDes(newDes);
+      }else{
+        setSnackbarProperty(prevState => ({
+          ...prevState,
+          text: "You can only add 200 characters",
+          color: "danger"
+        }));
+        setSnackAlert(true);
+        setDes(newDes.substring(0,200));
+      }
     }
     
   return (
@@ -83,7 +98,8 @@ const Create = () => {
           <input type="text" name="title" value={title} className='selectTitle' placeholder='Write blog title...' autoComplete={false} onChange={(e) => {setTitle(e.target.value)}} />
           <InputFileUpload setBanner={setBanner} />
         </div>
-        <textarea value={des} onChange={(e) => {setDes(e.target.value)}} name="des" id="" cols="30" rows="5" className='styleInput' placeholder='Write description...'></textarea>
+        <span className='px-2' style={{fontSize: '9px', color: 'grey'}}>{des.length}/200</span>
+        <textarea value={des} onChange={(e) => {handleDesChange(e)}} name="des" id="" cols="30" rows="5" className='styleInput' placeholder='Write description...'></textarea>
         <Editor content={content} setContent={setContent} />
         <div className="d-flex align-items-center justify-content-between">
           <div className="firstDev">
