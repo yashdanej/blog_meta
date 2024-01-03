@@ -88,7 +88,7 @@ export const LikeButton = ({size='1.2rem', blog, liked, setLiked, setTotalLikes}
         if(res.data.message === "Like added!"){
             setSnackbarProperty(prevState => ({
                 ...prevState,
-                text: "Like added successfully🩷",
+                text: "Like added successfully💕",
                 color: "success"
             }));
             setTotalLikes(res.data.totalLikes);

@@ -96,7 +96,7 @@ const View = () => {
       :null
     }
         <img src={blog?.banner?.url} width='80%' style={{display: 'block', margin: '15px auto'}} alt="" />
-        <span><FavoriteBorderIcon/>{blog?.activity?.total_likes.length}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{cursor: 'pointer'}} onClick={toggleDrawer(true)}><ModeCommentIcon/>{blog?.activity?.total_comments}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<RemoveRedEyeSharpIcon/>{blog?.activity?.total_reads.length}</span>
+        <p className='text-center'><FavoriteBorderIcon/>{blog?.activity?.total_likes.length}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{cursor: 'pointer'}} onClick={toggleDrawer(true)}><ModeCommentIcon/>{blog?.activity?.total_comments}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<RemoveRedEyeSharpIcon/>{blog?.activity?.total_reads.length}</p>
         <div className='container py-3'>
             <div className='blogContentSection' dangerouslySetInnerHTML={{ __html: blog?.content }} />
         </div>
@@ -112,15 +112,17 @@ const View = () => {
         {
             open && <Comments blogauthor={blog?.author} blogid={blog?._id} toggleDrawer={toggleDrawer} open={open} comments={comments} handleFetchComment={handleFetchComment} />
         }
-        <p>Comments</p>
         {
-            comments &&
-            comments.length>0 &&
-            comments.map((comment) => {
+          comments &&
+          comments.length>0 &&
+          <>
+            <p>Comments</p>
+            {comments.map((comment) => {
                 return (
                     <ViewAllComments handleFetchComment={handleFetchComment} key={comment._id} comment={comment} renderComments={renderComments} />
                 )
-            })
+            })}
+          </>
         }
     </div>
   )

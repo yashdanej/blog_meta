@@ -2,10 +2,8 @@ import React from 'react'
 import SimilarOption from './SimilarOption'
 
 const SimilarBlogs = ({similarBlog}) => {
-  console.log('similarBlog', similarBlog);
   return (
     <>
-      <p className='fw-bold py-3' style={{fontSize: '17px'}}>People also find interesting</p>
       {
         similarBlog?.map((blog) => {
           return (

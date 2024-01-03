@@ -153,7 +153,7 @@ export default function BlogCard({blog}) {
           </Sheet>
           <Box sx={{ display: 'flex', gap: 1.5, '& > button': { flex: 1 } }}>
             <Button className='buttonView' variant="outlined" color="neutral">
-              <Link className='buttonViewText' style={{color: '#161616', textDecoration: 'none'}}>Visit Profile</Link>
+              <Link to={`/setting/${blog?.author?.personal_info?.username}`} className='buttonViewText' style={{color: '#161616', textDecoration: 'none'}}>Visit Profile</Link>
             </Button>
             <Button className='buttonView' variant="solid" style={{background: '#161616'}}>
               <Link className='buttonViewText' style={{color: 'white', textDecoration: 'none'}} onClick={() => handleViewBlog(blog?._id)} to={`/blog/${blog?._id}`}>View</Link>
