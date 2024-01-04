@@ -11,15 +11,24 @@ import AddIcon from '@mui/icons-material/Add';
 import SnackbarWithDecorators from '../../components/SnackbarWithDecorators';
 import { LoadingContent, api, logout } from '../../components/utils';
 import Cookies from 'js-cookie';
+import UpdateUser from './UpdateProfile/UpdateUser';
+import LinkIcon from '@mui/icons-material/Link';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const User = () => {
+    const [open, setOpen] = useState(false);
     const getUsername = window.location.pathname.split('/')[2];
     const [fetchUser, setFetchUser] = useState([]);
     const getUser = Cookies.get('user');
     const user = getUser?JSON.parse(getUser):null;
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    useEffect(() => {
+    const fetchUserFn = () => {
         setLoading(true);
         const pathname = `/user/${getUsername}`
         api(pathname, 'get', false)
@@ -31,6 +40,9 @@ const User = () => {
         }).finally(() => {
             setLoading(false);
         })
+    }
+    useEffect(() => {
+        fetchUserFn();
     }, []);
     const onLogout = () => {
         logout();
@@ -51,7 +63,7 @@ const User = () => {
         <div className="topContent">
             <div className="topContentSection container">
                 <Link to="/" ><p className='back'>BACK</p></Link>
-                <button className='text-capitalize'>{user.username === getUsername ?"Edit Profile":`${getUsername}'s Profile`}</button>
+                <button className='text-capitalize' onClick={() => {user && user?.username === getUsername && setOpen(true)}}>{user && user?.username === getUsername ?"Edit Profile":`${getUsername}'s Profile`}</button>
                 <div className="topContentText">
                     <p className='fw-bold'>Joined At</p>
                     <p>{handleDate(fetchUser?.joinedAt)}</p>
@@ -73,22 +85,24 @@ const User = () => {
                     <img className='avatar' src={fetchUser?.personal_info?.profile_img?.url} alt="" />
                     <span style={{fontSize: '20px'}} className='fw-bold'>{fetchUser?.personal_info?.fullname}</span>
                     <span className='secondText'>{fetchUser?.personal_info?.email}</span>
-                    <span className='leftComponentText'>{fetchUser?.personal_info?.bio}</span>
-                    <div className="d-flex w-50 justify-content-evenly">
-                        <span className='leftComponentText'><LanguageIcon/> LinkeIn</span>
-                        <span className='leftComponentText'><LanguageIcon/> LinkeIn</span>
-                        <span className='leftComponentText'><LanguageIcon/> LinkeIn</span>
-                        <span className='leftComponentText'><LanguageIcon/> LinkeIn</span>
+                    <span style={{padding: '0 3em'}} className='leftComponentText'>{fetchUser?.personal_info?.bio}</span>
+                    <div style={{padding: '0 25px'}} className="d-flex justify-content-evenly">
+                        {fetchUser?.social_links?.youtube && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} href={fetchUser?.social_links?.youtube}><YouTubeIcon/> Youtube</a></span>}
+                        {fetchUser?.social_links?.instagram && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} href={fetchUser?.social_links?.instagram}><InstagramIcon/> Instagram</a></span>}
+                        {fetchUser?.social_links?.facebook && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} href={fetchUser?.social_links?.facebook}><FacebookIcon/> Facebook</a></span>}
+                        {fetchUser?.social_links?.twitter && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} href={fetchUser?.social_links?.twitter}><TwitterIcon/> Twitter</a></span>}
+                        {fetchUser?.social_links?.github && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} href={fetchUser?.social_links?.github}><GitHubIcon/> Github</a></span>}
+                        {fetchUser?.social_links?.website && <span className='leftComponentText'><a style={{color: 'inherit', textDecoration: 'none'}} target='_blank' href={fetchUser?.social_links?.website}><OpenInNewIcon/> Website</a></span>}
                     </div>
                     {
-                        user.username === getUsername ?
+                        user && user?.username === getUsername ?
                         <>
                             <span className='my-2 fw-bold iconText'><AccountCircleIcon/> Profile</span>
                             <Link to="/changepassword" style={{color: 'inherit', textDecoration: 'none'}}><span className='my-2 fw-bold iconText'><SettingsIcon/> Change Password</span></Link>
                             <span onClick={onLogout} className='mt-4 fw-bold iconText'><LogoutIcon/> Sign Out</span>
                             <span className='mt-3 fw-bold iconText'><HelpIcon/> Help</span>
                         </>:
-                        <img width="70%" style={{borderRadius: '25px'}} src="/images/batman.jpg" alt="" />
+                        <img width="70%" style={{borderRadius: '25px', filter: 'grayscale()'}} src="/images/batman.jpg" alt="" />
                     }
                 </div>
             </div>
@@ -105,7 +119,7 @@ const User = () => {
                     }
                 </div>
                 {
-                    user.username === getUsername &&
+                    user && user.username === getUsername &&
                     <div className="writeBtn contentChange">
                         <span className='fw-bold'>Write</span>
                         <Link to="/create"><AddIcon className='addIcon'/></Link>
@@ -116,6 +130,7 @@ const User = () => {
         
     </div>
     }
+    <UpdateUser getUsername={getUsername} open={open} setOpen={setOpen} fetchUserFn={fetchUserFn} />
     </>
 
   )

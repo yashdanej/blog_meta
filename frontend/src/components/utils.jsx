@@ -13,14 +13,11 @@ export const api = async (pathname, method, body, formData=false, includeCredent
     if(body){
         if(formData){
             const data = new FormData();
-            const {title, banner, des, content, tags, draft} = body
-            data.append('title', title);
-            data.append('banner', banner);
-            data.append('des', des);
-            data.append('content', content);
-            data.append('tags', tags);
-            data.append('draft', draft);
-            console.log('data', data);
+            for (const key in body) {
+              if (body.hasOwnProperty(key)) {
+                  data.append(key, body[key]);
+              }
+            }
             axiosConfig.data = data;
         }else{
             axiosConfig.data = body;

@@ -3,6 +3,10 @@
     width: 100vw;
     overflow: hidden;
 }
+.MuiModalDialog-root{
+    width: 50%;
+    overflow: auto;
+}
 .topContent{
     height: 35vh;
     background-image: url(../../../public/images/black.jpg);

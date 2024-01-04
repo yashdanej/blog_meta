@@ -57,7 +57,7 @@ exports.UpdateUser = async (req, res, next) => {
                 const result = await cloudinary.uploader.upload(req.file.path, {
                     folder: "user"
                 });
-                profilePic = {
+                profile_img = {
                   public_id: result.public_id,
                   url: result.secure_url
                 }

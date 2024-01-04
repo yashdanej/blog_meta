@@ -271,7 +271,6 @@ exports.SimilarBlog = async (req, res, next) => {
 }
 
 exports.TagsBlog = async (req, res, next) => {
-    console.log('wdwdwd')
     try {
         const tags = req.body.tags.split(",");
         const list = await blogs.find({ tags: { $in: tags } }).populate('author');
