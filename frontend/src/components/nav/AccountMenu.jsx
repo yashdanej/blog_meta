@@ -42,6 +42,7 @@ export default function AccountMenu({handleSearch, searchTxt, setSearchTxt}) {
   }, [searchTxt])
   
   const handleSearchClick = (searchTxt) => {
+    console.log('searchTxt', searchTxt);
     if(searchTxt === ''){
       setSnackbarProperty(prevState => ({
         ...prevState,

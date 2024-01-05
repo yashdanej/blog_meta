@@ -55,6 +55,7 @@ const User = () => {
             .padStart(2, "0")}-${dateObject.getDate().toString().padStart(2, "0")}`;
         return formattedDate
     }
+    const userGet = user && user?.username === getUsername
   return (
     <>
     {loading ? <LoadingContent/> :
@@ -112,7 +113,7 @@ const User = () => {
                         fetchUser?.blogs?.map((blog) => {
                             return (
                                 <div className="col-lg-4">
-                                    <UserCard blog={blog} />
+                                    <UserCard fetchUserFn={fetchUserFn} userGet={userGet} blog={blog} />
                                 </div>
                             )
                         })

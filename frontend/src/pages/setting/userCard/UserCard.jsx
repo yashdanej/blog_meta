@@ -8,8 +8,19 @@ import Typography from '@mui/joy/Typography';
 import IconButton from '@mui/joy/IconButton';
 import {Link} from 'react-router-dom';
 import Favorite from '@mui/icons-material/Favorite';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { LoadingContent, api } from '../../../components/utils';
+import SnackbarWithDecorators from '../../../components/SnackbarWithDecorators';
+import { useState } from 'react';
 
-export default function UserCard({blog}) {
+export default function UserCard({fetchUserFn, userGet, blog}) {
+  const [snackAlert, setSnackAlert] = useState(false); // popup success or error
+  const [snackbarProperty, setSnackbarProperty] = useState({ // popup success or error text
+      text: '',
+      color: ''
+  });
+  const [loading, setLoading] = useState(false);
   let timeDifference;
     const displayTimeOfPost = (ele) => {
         const createdDate = new Date(ele);
@@ -38,7 +49,33 @@ export default function UserCard({blog}) {
         };
         return getTimeDifferenceString();
       }
+      const handleDeleteBlog = (id) => {
+        setLoading(true);
+        const pathname = `/blog/${id}`;
+        api(pathname, 'delete', false, false, true)
+        .then(res => {
+          console.log('res', res);
+          fetchUserFn();
+          setSnackbarProperty(prevState => ({
+            ...prevState,
+            text: "Blog deleted successfully🦎!",
+            color: "success"
+          }));
+          setSnackAlert(true);
+        }).catch(e => {
+          console.log("error in deleting blog", e);
+        }).finally(() => {
+            setLoading(false);
+        });
+      }
   return (
+    <>
+    {loading && <LoadingContent/>}
+    {
+      snackAlert?
+      <SnackbarWithDecorators snackAlert={snackAlert} setSnackAlert={setSnackAlert} text={snackbarProperty.text} color={snackbarProperty.color} />
+      :null
+    }
     <Card variant="outlined" sx={{ width: '100%', borderRadius: '25px', marginBottom: '20px' }}>
       <CardOverflow>
         <AspectRatio ratio="1.5">
@@ -55,6 +92,7 @@ export default function UserCard({blog}) {
           size="md"
           variant="solid"
           color="danger"
+          onClick={() => {userGet && handleDeleteBlog(blog?._id)}}
           sx={{
             position: 'absolute',
             zIndex: 2,
@@ -64,8 +102,30 @@ export default function UserCard({blog}) {
             transform: 'translateY(50%)',
           }}
         >
-          <Favorite />
+          {
+            userGet?<DeleteForeverIcon />:<Favorite />
+          }
+
         </IconButton>
+          {
+            userGet &&
+            <IconButton
+            aria-label="Like minimal photography"
+            size="md"
+            variant="solid"
+            color="primary"
+            sx={{
+              position: 'absolute',
+              zIndex: 2,
+              borderRadius: '50%',
+              right: '3.5rem',
+              bottom: '0',
+              transform: 'translateY(50%)',
+            }}
+          >
+            <ModeEditIcon />
+          </IconButton>
+          }
       </CardOverflow>
       <CardContent>
         <Typography level="title-md">
@@ -86,5 +146,6 @@ export default function UserCard({blog}) {
         </CardContent>
       </CardOverflow>
     </Card>
+    </>
   );
 }

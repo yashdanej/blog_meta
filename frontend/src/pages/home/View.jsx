@@ -96,7 +96,7 @@ const View = () => {
       :null
     }
         <img src={blog?.banner?.url} width='80%' style={{display: 'block', margin: '15px auto'}} alt="" />
-        <p className='text-center'><FavoriteBorderIcon/>{blog?.activity?.total_likes.length}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{cursor: 'pointer'}} onClick={toggleDrawer(true)}><ModeCommentIcon/>{blog?.activity?.total_comments}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<RemoveRedEyeSharpIcon/>{blog?.activity?.total_reads.length}</p>
+        <p className='text-center'><FavoriteBorderIcon/>{blog?.activity?.total_likes.length}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{cursor: 'pointer'}} onClick={toggleDrawer(true)}><ModeCommentIcon/>{blog?.activity?.total_comments}<span className='fw-bold' style={{fontSize: '12px'}}>(Add comment)</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<RemoveRedEyeSharpIcon/>{blog?.activity?.total_reads.length}</p>
         <div className='container py-3'>
             <div className='blogContentSection' dangerouslySetInnerHTML={{ __html: blog?.content }} />
         </div>

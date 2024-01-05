@@ -14,7 +14,7 @@ const Interest = ({handletags, searchByTags, similarBlogSearch, setSimilarBlogSe
             <SelectMultipleAppearance handletags={handletags} searchByTags={searchByTags} similarBlogSearch={similarBlogSearch} setSimilarBlogSearch={setSimilarBlogSearch} setSearchByTags={setSearchByTags} />
         </div>
         <div className="p-3">
-        <span className='primaryColor trendingStyle py-5 fw-bold'>Featured</span>
+        <span className='primaryColor trendingStyle py-5 fw-bold'>Featured <span className='text-danger'>(Coming soon)</span></span>
         <hr className='trendingStyleHr1' />
         <hr className='trendingStyleHr2' />
         <div className="featured">
