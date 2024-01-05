@@ -8,6 +8,9 @@
 .blogPost .MuiSheet-root{
     margin: 0;
 }
+.blogPost .MuiSheet-root, .searchSeaction .MuiSheet-root{
+    background-color: inherit;
+}
 .imageContent{
     position: absolute;
     top: 50%;

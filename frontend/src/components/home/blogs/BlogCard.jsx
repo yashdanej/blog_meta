@@ -111,8 +111,12 @@ export default function BlogCard({blog}) {
             <span>
             {
               blog?.tags?.length>0?
-              blog?.tags?.map((tag) => {
-                return(<span className="tagBtn mx-1">{tag}</span>)
+              blog?.tags?.map((tag, index) => {
+                if(index<=3){
+                  return(<span className="tagBtn mx-1">{tag}</span>)
+                }else{
+                  return "..."
+                }
               }):
               <span>{blog?.tags}</span>
             }
