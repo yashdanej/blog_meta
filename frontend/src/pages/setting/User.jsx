@@ -65,7 +65,7 @@ const User = () => {
                 <Link to="/" ><p className='back'>BACK</p></Link>
                 <button className='text-capitalize' onClick={() => {user && user?.username === getUsername && setOpen(true)}}>{user && user?.username === getUsername ?"Edit Profile":`${getUsername}'s Profile`}</button>
                 <div className="topContentText">
-                    <p className='fw-bold'>Joined At</p>
+                    <p className='fw-bold'>Joined</p>
                     <p>{handleDate(fetchUser?.joinedAt)}</p>
                 </div>
                 <div className="topContentText">

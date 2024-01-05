@@ -20,6 +20,41 @@
     position: relative;
     top: 67%;
 }
+@media screen and (max-width: 991px) {
+    .topContentSection{
+        top: 47%;
+        justify-content: center;
+    }
+    .back{
+        bottom: 200% !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .topContentSection{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 515px) {
+    .topContentSection{
+        font-size: 12px;
+    }
+    .back{
+        font-size: 14px !important;
+        left: 12px !important;
+    }
+    .topContentSection button{
+        padding: 0!important ;
+        border: none !important;
+    }
+}
+@media screen and (max-width: 425px) {
+    .topContentSection{
+        font-size: 9px;
+    }
+    .topContentText p{
+        margin: 0 20px !important;
+    }
+}
 .back{
     position: absolute;
     left: 0;
