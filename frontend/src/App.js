@@ -89,7 +89,7 @@ function App() {
       <Route exact path="/signin" element={<Authentication/>} />
       <Route exact path="/signup" element={<SignUp/>} />
       <Route exact path="/" element={<Home tags={tags} handletags={handletags} similarBlogSearch={similarBlogSearch} setSimilarBlogSearch={setSimilarBlogSearch} searchByTags={searchByTags} setSearchByTags={setSearchByTags} fetchBlogs={fetchBlogs} blogs={blogs}/>} />
-      <Route exact path="/create" element={<Create />} />
+      <Route exact path="/create/:id?" element={<Create />} />
       <Route exact path="/blog/:id" element={<View />} />
       <Route exact path="/search/:text" element={<Search searchTxt={searchTxt.search} searchObject={searchObject} />} />
       <Route exact path='/setting/:user' element={<User/>} />

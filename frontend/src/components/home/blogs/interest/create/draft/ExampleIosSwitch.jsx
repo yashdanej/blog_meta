@@ -4,7 +4,7 @@ import Switch, { switchClasses } from '@mui/joy/Switch';
 export default function ExampleIosSwitch({draft, setDraft}) {
   return (
     <Switch
-      draft={draft}
+      checked={draft}
       onChange={(event) => setDraft(event.target.checked)}
       sx={(theme) => ({
         '--Switch-thumbShadow': '0 3px 7px 0 rgba(0 0 0 / 0.12)',

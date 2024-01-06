@@ -4,7 +4,7 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import { TextField } from '@mui/material';
 
-export default function LimitTags({setTags}) {
+export default function LimitTags({ tags, setTags }) {
   return (
     <FormControl id="multiple-limit-tags">
       <Autocomplete
@@ -15,7 +15,7 @@ export default function LimitTags({setTags}) {
         getOptionLabel={(option) => option.title}
         sx={{ width: '500px' }}
         onChange={(event, selectedOptions) => {
-        setTags(selectedOptions.map((option) => option.title).join(','));
+          setTags(selectedOptions.map((option) => option.title).join(','));
         }}
         renderInput={(params) => <TextField {...params} label="Tags" />}
       />

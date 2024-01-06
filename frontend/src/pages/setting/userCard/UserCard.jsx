@@ -105,8 +105,8 @@ export default function UserCard({fetchUserFn, userGet, blog}) {
           {
             userGet?<DeleteForeverIcon />:<Favorite />
           }
-
         </IconButton>
+        <Link to={`/create/${blog?._id}`}>
           {
             userGet &&
             <IconButton
@@ -126,6 +126,7 @@ export default function UserCard({fetchUserFn, userGet, blog}) {
             <ModeEditIcon />
           </IconButton>
           }
+          </Link>
       </CardOverflow>
       <CardContent>
         <Typography level="title-md">
@@ -134,7 +135,7 @@ export default function UserCard({fetchUserFn, userGet, blog}) {
           </Link>
         </Typography>
         <Typography level="body-sm">
-          <Link style={{color: 'inherit', textDecoration: 'none'}} to={`/blog/${blog?._id}`} href="#multiple-actions">{blog?.des.length>28?blog?.des.slice(0, 28) + "...":blog?.des}</Link>
+          <Link style={{color: 'inherit', textDecoration: 'none'}} to={`/blog/${blog?._id}`}>{blog?.des.length>28?blog?.des.slice(0, 28) + "...":blog?.des}</Link>
         </Typography>
       </CardContent>
       <CardOverflow variant="soft">
