@@ -4,3 +4,24 @@
     margin-left: auto !important;
     margin-right: auto !important;
 }
+.blogContentSection img{
+    max-width: 100%;
+    object-fit: contain;
+}
+@media screen and (max-width: 767px) {
+    .blogContentSection img{
+        height: 50% !important;
+    }
+    .blogContentSection h1, h2{
+        font-size: 11px !important;
+    }
+    .blogContentSection p{
+        font-size: 8px !important;
+    }
+    .blogContentSection span{
+        font-size: 8px !important;
+    }
+    .blogContentSection b{
+        font-size: 8px !important;
+    }
+}
