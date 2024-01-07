@@ -6,6 +6,7 @@ const passport = require('passport');
 const cookieSession = require('cookie-session');
 const passportSetup = require('./passport')
 const cors = require('cors');
+const path = require('path')
 const app = express();
 dotenv.config();
 app.use(express.json());
@@ -38,6 +39,13 @@ app.use('/blog', blogRouter.router)
 app.use('', utilRouter.router)
 app.use('/user', userRouter.router)
 // route setup END
+
+// static file for deployement START
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+});
+// static file for deployement END
 
 // error handling START
 app.use((err, req, res, next) => {
