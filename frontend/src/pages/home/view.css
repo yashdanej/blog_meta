@@ -5,8 +5,8 @@
     margin-right: auto !important;
 }
 .blogContentSection p img{
-    max-width: 100%;
-    object-fit: contain;
+    max-width: 100% !important;
+    object-fit: contain !important;
 }
 @media screen and (max-width: 767px) {
     .blogContentSection p img{
