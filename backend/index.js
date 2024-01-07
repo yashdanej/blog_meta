@@ -11,7 +11,7 @@ const app = express();
 dotenv.config();
 app.use(express.json());
 app.use(cookieParser());
-
+app.set("view engine", "ejs");
 // for google auth20 START
 app.unsubscribe(
     cookieSession({
