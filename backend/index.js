@@ -22,7 +22,8 @@ app.unsubscribe(
 // app.use(passport.initialize());
 // app.use(passport.session());
 app.use(cors({
-    origin: ['https://blog-meta.vercel.app'],  // i am doing this because of cookie request
+    origin: 'https://blog-meta.vercel.app', // i am doing this because of cookie request
+    methods: ["POST", "GET", "DELETE", "PATCH"],
     credentials: true,
 }));
 // for google auth20 START
