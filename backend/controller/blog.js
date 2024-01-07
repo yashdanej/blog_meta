@@ -1,6 +1,6 @@
 const { verifyToken } = require("../utils/verifyToken")
 const cloudinary = require('../utils/cloudinary');
-const { users } = require("../model/user");
+const { users } = require('../model/user');
 const { createError } = require("../utils/error");
 const { blogs } = require("../model/Blog");
 const { comments } = require("../model/Comment");
