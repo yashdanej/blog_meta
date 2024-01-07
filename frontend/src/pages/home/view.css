@@ -4,12 +4,12 @@
     margin-left: auto !important;
     margin-right: auto !important;
 }
-.blogContentSection img{
+.blogContentSection p img{
     max-width: 100%;
     object-fit: contain;
 }
 @media screen and (max-width: 767px) {
-    .blogContentSection img{
+    .blogContentSection p img{
         height: 50% !important;
     }
     .blogContentSection h1, h2{
